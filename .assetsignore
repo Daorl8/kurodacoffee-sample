@@ -1,0 +1,14 @@
+.git
+.git/**
+wrangler.toml
+.assetsignore
+README.md
+CHANGELOG.md
+STRUCTURE.md
+img
+img/**
+index_*.html
+kc-choco-cake.webp
+kc-napolitan-coke.webp
+kc-napolitan-set.webp
+kc-blackhan.woff2
