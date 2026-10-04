@@ -153,17 +153,21 @@ h1,h2,h3{ font-weight:700; margin:0; }
 .greet-logo{ width:min(70%,300px); margin:0 auto; }
 
 /* ---------- 모닝세트 (깅엄 체크) ---------- */
-.gingham{ padding:clamp(64px,10vw,112px) 0 0; } /* v0.2: 깅엄 체크 제거 */
+.gingham{ padding:clamp(64px,10vw,112px) 0; } /* v0.3: 아래 벨벳 띠와 붙지 않게 하단 여백 */
 .morning{ display:grid; gap:28px; align-items:center; }
 .morning .card{ text-align:center; }
 .morning h3{ font-family:var(--menu); font-weight:400; font-size:clamp(1.9rem,6vw,2.6rem); color:var(--velvet); line-height:1.2; }
 .morning .time{ font-family:var(--sign-ko); font-size:1.15rem; margin:8px 0 2px; }
 .morning .time-ja{ font-family:var(--menu); color:var(--ink-soft); font-size:.95rem; margin:0; }
 .steps{ list-style:none; margin:22px 0 0; padding:0; display:grid; gap:10px; text-align:left; }
-.steps li{ display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:baseline; padding:10px 0; border-bottom:1px dashed rgba(42,26,18,.35); }
+.steps li{ display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center; padding:10px 0; border-bottom:1px dashed rgba(42,26,18,.35); }
 .steps li:last-child{ border-bottom:0; }
 .steps .n{ font-family:var(--menu); color:var(--velvet); font-size:1.15rem; }
-.steps .p{ font-family:var(--sign-ko); white-space:nowrap; }
+.steps .p{ font-family:var(--sign-ko); white-space:nowrap; color:var(--velvet); }
+.steps .base{ background:rgba(126,24,32,.06); padding:12px 12px; border-bottom:0; margin-bottom:4px; }
+.morning .how{ margin:18px 0 0; font-size:1.05rem; }
+.morning .how b{ color:var(--velvet); }
+.steps .or{ font-size:.82rem; color:var(--ink-soft); padding:6px 0 0; border-bottom:0; display:block; }
 .steps small{ display:block; font-family:var(--menu); color:var(--ink-soft); font-size:.82rem; }
 .morning-photo img{ width:100%; aspect-ratio:4/5; object-fit:cover; border:2px solid var(--ink); }
 
@@ -193,12 +197,21 @@ h1,h2,h3{ font-weight:700; margin:0; }
 .tag{ display:inline-block; font-family:var(--sign-ko); font-size:.7rem; line-height:1; padding:4px 6px 3px; margin-right:6px; vertical-align:2px; border-radius:2px; }
 .tag.rep{ background:var(--velvet); color:var(--cream); }
 .tag.new{ background:var(--brass); color:var(--wood); }
+/* v0.4 모바일 넘침 수정: 그리드·플렉스 자식이 글자 길이만큼 늘어나던 문제(min-width:auto) + 일본어 가타카나가 keep-all로 안 끊기던 문제 */
+.cat, .item, .item .row{ min-width:0; }
+.item .nm{ min-width:0; word-break:normal; overflow-wrap:anywhere; }
+.item .ds{ overflow-wrap:anywhere; }
+@media (max-width:560px){
+  .board{ padding:28px 18px; outline-offset:-7px; }
+  .item .nm-ko{ display:block; margin:1px 0 0; }   /* 좁은 화면: 한글 이름은 일본어 아래 줄로 */
+  .item .ds{ font-size:.84rem; }
+}
 .board-note{ margin:28px 0 0; font-size:.86rem; color:var(--ink-soft); text-align:center; }
 
 /* ---------- 오시는 길 ---------- */
 .visit-grid{ display:grid; gap:30px; }
 .info{ margin:0; }
-.info .row{ display:grid; grid-template-columns:92px 1fr; gap:12px; padding:14px 0; border-bottom:1px dashed rgba(42,26,18,.35); }
+.info .row{ display:grid; grid-template-columns:92px 1fr; gap:12px; align-items:center; padding:14px 0; border-bottom:1px dashed rgba(42,26,18,.35); }
 .info .row:last-child{ border-bottom:0; }
 .info dt{ font-family:var(--sign-ko); }
 .info dt .ja{ display:block; font-size:.78rem; color:var(--velvet); letter-spacing:.1em; }
@@ -230,7 +243,7 @@ h1,h2,h3{ font-weight:700; margin:0; }
   .hero .wrap{ grid-template-columns:1.15fr .85fr; align-items:center; gap:56px; }
   .greet{ grid-template-columns:1.3fr .7fr; gap:56px; }
   .morning{ grid-template-columns:1.1fr .9fr; gap:56px; }
-  .visit-grid{ grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+  .visit-grid{ grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
 }
 </style>
 </head>
@@ -259,7 +272,7 @@ h1,h2,h3{ font-weight:700; margin:0; }
             <p class="kicker">喫茶 クロダ</p>
             <h1>가장 커피스러운<br />한 잔을, <em>천천히</em></h1>
             <p class="ja-line">ゆっくり、珈琲をどうぞ。</p>
-            <p class="lead">시간에 쫓기듯 마시는 아이스 아메리카노 대신, 멋도 기교도 부리지 않은 한 잔을 천천히 만끽(滿喫)하며 공상에 잠길 수 있는 곳. 전주 남노송동의 작은 다방입니다.</p>
+            <p class="lead">시간에 쫓기듯 마시는 아이스 아메리카노 대신, 멋도 기교도 부리지 않은 한 잔을 천천히 만끽(滿喫)하며 공상에 잠길 수 있는 곳. 전주 남노송동의 작은 커피점입니다.</p>
         </div>
         <div class="hero-cta">
           <a class="btn red" href="https://naver.me/IDk69thj" target="_blank" rel="noopener">네이버 지도에서 보기</a>
@@ -299,14 +312,15 @@ h1,h2,h3{ font-weight:700; margin:0; }
       <div class="card reveal">
         <span class="ja">朝をしっかりと!!</span>
         <h3 id="morning-h">モーニングセット</h3>
-        <p class="time">쿠로다 모닝세트 · 매일 아침 개점부터 낮 12시까지</p>
+        <p class="time">쿠로다 모닝세트 · 아침 10시 개점 ~ 낮 12시</p>
         <p class="time-ja">毎朝開店 ~ PM12:00まで</p>
-        <ol class="steps">
-          <li><span class="n">壱</span><span>모든 음료 중 하나를 주문하시면<small>全ドリンク</small></span><span class="p">음료 가격</span></li>
-          <li><span class="n">弐</span><span>토스트 (토핑 2개)<small>トースト無料</small></span><span class="p">무료</span></li>
-          <li><span class="n">参</span><span>또는 모닝 시리얼로<small>モーニングシリアル</small></span><span class="p">+1,800</span></li>
-          <li><span class="n">四</span><span>또는 쿠로다 팬케익으로<small>クロダパンケーキ</small></span><span class="p">+2,200</span></li>
-        </ol>
+        <p class="how">음료 한 잔을 시키면 <b>토스트가 무료</b>예요.</p>
+        <ul class="steps">
+          <li class="base"><span>음료 + 토스트 (토핑 2가지 선택)<small>トースト無料</small></span><span class="p">음료값만</span></li>
+          <li class="or">토스트 대신 바꾸고 싶다면</li>
+          <li><span>모닝 시리얼로 변경<small>モーニングシリアル</small></span><span class="p">+1,800원</span></li>
+          <li><span>쿠로다 팬케익으로 변경<small>クロダパンケーキ</small></span><span class="p">+2,200원</span></li>
+        </ul>
       </div>
       <figure class="morning-photo reveal" style="margin:0">
         <img loading="lazy" src="kc-toast.webp" alt="바구니에 담긴 삼각 토스트와 잼·스프레드 세 가지" width="675" height="900" />
@@ -319,7 +333,7 @@ h1,h2,h3{ font-weight:700; margin:0; }
     <div class="wrap">
       <div class="sec-head">
         <span class="ja">喫茶の定番</span>
-        <h2 id="picks-h">다방의 단골 메뉴</h2>
+        <h2 id="picks-h">대표 메뉴</h2>
         <p>일본 킷사텐에서 오래 사랑받아 온 그 맛 그대로.</p>
       </div>
       <div class="picks">
