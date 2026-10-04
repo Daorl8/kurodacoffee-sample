@@ -215,6 +215,8 @@ h1,h2,h3{ font-weight:700; margin:0; }
 .info .row:last-child{ border-bottom:0; }
 .info dt{ font-family:var(--sign-ko); }
 .info dt .ja{ display:block; font-size:.78rem; color:var(--velvet); letter-spacing:.1em; }
+/* v0.6 가짜 볼드 방지: Zen Antique(400만 있음)로 그려지는 일본어가 굵은 부모 안에 있는 곳은 400으로 */
+.nav a:not(.btn) span, .cat h3 .ja, .info dt .ja, .hero .hours b{ font-weight:400; }
 .info dd{ margin:0; }
 .info dd small{ display:block; color:var(--ink-soft); font-size:.88rem; margin-top:2px; }
 .info a.tel{ font-weight:700; border-bottom:2px solid var(--brass); font-variant-numeric:tabular-nums; }
